@@ -35,6 +35,15 @@ body {
     letter-spacing: 1px;
 }
 
+.logo a img {
+    transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+    cursor: pointer;
+}
+.logo a:hover img {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 4px 16px rgba(0,123,255,0.13);
+}
+
 .nav-links {
     display: flex;
     gap: 2.5rem;
