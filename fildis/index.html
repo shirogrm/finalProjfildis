@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Plataporma ng Pag-aaral</div>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Tahanan</a></li>
+            <li><a href="#subjects">Mga Paksa</a></li>
+            <li><a href="#about">Tungkol</a></li>
+        </ul>
+        <button class="login-btn" onclick="openLoginModal()">Login</button>
+    </nav>
+
+    <main>
+        <div class="floating-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+            <div class="shape shape4"></div>
+            <div class="shape shape5"></div>
+        </div>
+        <section id="home" class="section">
+            <h2>Maligayang Pagdating sa Aming Plataporma ng Pag-aaral</h2>
+            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">
+                Tuklasin ang mundo ng kaalaman sa pamamagitan ng aming komprehensibong mapagkukunan ng pag-aaral.
+            </p>
+        </section>
+
+        <section id="subjects" class="section">
+            <h2>Mga Paksa</h2>
+            <div class="subjects-grid">
+                <div class="subject-card" onclick="openFildisModules()">
+                    <div class="subject-icon icon-bg fildis"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>FILDIS</h3>
+                    <div class="divider"></div>
+                    <p>Galugarin ang mga pangunahing konsepto ng wikang Filipino at panitikan. Matuto tungkol sa pamanang pangkultura, mga akdang pampanitikan, at pag-unlad ng wika.</p>
+                </div>
+                <div class="subject-card" onclick="openSolslitModules()">
+                    <div class="subject-icon icon-bg solslit"><i class="fa-solid fa-globe"></i></div>
+                    <h3>SOLSLIT</h3>
+                    <div class="divider"></div>
+                    <p>Sumisid sa mundo ng agham panlipunan at panitikan. Unawain ang pag-uugali ng tao, lipunan, at mga pahayag ng kultura sa iba't ibang pananaw.</p>
+                </div>
+                <div class="subject-card" onclick="openKomfilModules()">
+                    <div class="subject-icon icon-bg komfil"><i class="fa-solid fa-comments"></i></div>
+                    <h3>KOMFIL</h3>
+                    <div class="divider"></div>
+                    <p>Pagbutihin ang sining ng komunikasyon sa Filipino. Paunlarin ang iyong kasanayan sa mabisang komunikasyon, pagsasalita sa publiko, at literasiya sa media.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2>Tungkol sa Amin</h2>
+            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">
+                Kami ay nakatuon sa pagbibigay ng dekalidad na edukasyon at mapagkukunan ng pag-aaral upang matulungan ang mga mag-aaral na magtagumpay sa kanilang akademikong paglalakbay.
+            </p>
+        </section>
+    </main>
+
+    <footer style="background-color: #333; color: white; padding: 2rem 0; margin-top: 3rem;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3 style="color: #007bff; margin-bottom: 1rem;">Guro</h3>
+                    <p style="line-height: 1.6;">
+                        <strong>Binibining Leila Romar Belen</strong><br>
+                        Guro ng Filipino<br>
+                        Departamento ng Filipino
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555;">
+                <p>&copy; 2025 Plataporma ng Pag-aaral. Lahat ng karapatan ay nakalaan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FILDIS Modules Modal -->
+    <div id="fildisModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('fildisModal')">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px;">FILDIS Modules</h2>
+            <div class="modules-grid">
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 1 .pdf', 'pdf')">
+                    <h4>Linggo 1</h4>
+                    <p>Panimula sa Wikang Filipino at Panitikan: Mga pangunahing konsepto at kasaysayan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 2.pdf', 'pdf')">
+                    <h4>Linggo 2</h4>
+                    <p>Balarila at Palaugnayan: Pag-unawa sa istruktura ng wika</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 3.pdf', 'pdf')">
+                    <h4>Linggo 3</h4>
+                    <p>Panitikang Filipino: Mga sinaunang anyo at tradisyonal na uri</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 4.pdf', 'pdf')">
+                    <h4>Linggo 4</h4>
+                    <p>Makabagong Panitikang Filipino: Mga kontemporaryong tema at istilo</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 5.pdf', 'pdf')">
+                    <h4>Linggo 5</h4>
+                    <p>Tula: Mga anyo at pagsusuri ng tulang Filipino</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 7.pdf', 'pdf')">
+                    <h4>Linggo 7</h4>
+                    <p>Tuluyan: Maikling kuwento at nobela</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 8.pdf', 'pdf')">
+                    <h4>Linggo 8</h4>
+                    <p>Dula: Tradisyonal at modernong teatro</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 9.pdf', 'pdf')">
+                    <h4>Linggo 9</h4>
+                    <p>Alamat at Pabula: Mga tradisyong pasalita</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 10.pdf', 'pdf')">
+                    <h4>Linggo 10</h4>
+                    <p>Pagsusuring Pampanitikan: Mga paraan ng pagsusuri</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 11.pdf', 'pdf')">
+                    <h4>Linggo 11</h4>
+                    <p>Wikang Filipino sa Media: Kontemporaryong paggamit at impluwensya</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 13 (same talaga sila ng week 11).pdf', 'pdf')">
+                    <h4>Linggo 13</h4>
+                    <p>Wikang Filipino sa Media: Kontemporaryong paggamit at impluwensya (Karagdagang talakay)</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 14 .pdf', 'pdf')">
+                    <h4>Linggo 14</h4>
+                    <p>Pagsasalin: Teorya at praktika ng pagsasalin</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 15.pdf', 'pdf')">
+                    <h4>Linggo 15</h4>
+                    <p>Plano ng Wika: Pagpapaunlad at pamantayan ng wikang Filipino</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 16.pdf', 'pdf')">
+                    <h4>Linggo 16</h4>
+                    <p>Panitikan sa Edukasyon: Mga paraan ng pagtuturo</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/FILDIS/FilDis week 1 - 17/week 17.pdf', 'pdf')">
+                    <h4>Linggo 17</h4>
+                    <p>Pangwakas na Proyekto: Pagsasama ng mga konsepto sa wika at panitikan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOLSLIT Modules Modal -->
+    <div id="solslitModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('solslitModal')">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px;">Mga Modyul ng SOLSLIT</h2>
+            <div class="modules-grid">
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 1.docx', 'docx')">
+                    <h4>Linggo 1</h4>
+                    <p>Panimula sa Agham Panlipunan at Panitikan: Mga pangunahing konsepto at kasaysayan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 2.docx', 'docx')">
+                    <h4>Linggo 2</h4>
+                    <p>Teorya at Pagsusuri Panlipunan: Pag-unawa sa mga istruktura at relasyon sa lipunan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 3.docx', 'docx')">
+                    <h4>Linggo 3</h4>
+                    <p>Pag-aaral ng Kultura: Pagsisiyasat ng mga pahayag ng kultura at penomenang panlipunan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 4.docx', 'docx')">
+                    <h4>Linggo 4</h4>
+                    <p>Pagsusuri ng Panitikan: Mga paraan at diskarte sa pag-aaral ng panitikan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 5.pdf', 'pdf')">
+                    <h4>Linggo 5</h4>
+                    <p>Kilusang Panlipunan: Pag-unawa sa sama-samang pagkilos at pagbabago sa lipunan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 7.pdf', 'pdf')">
+                    <h4>Linggo 7</h4>
+                    <p>Pag-aaral ng Kasarian: Pagsisiyasat ng mga tungkulin at konstruksyon ng kasarian</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 8.docx', 'docx')">
+                    <h4>Linggo 8</h4>
+                    <p>Sikolohiyang Panlipunan: Pag-unawa sa pag-uugali ng indibidwal sa kontekstong panlipunan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 9.docx', 'docx')">
+                    <h4>Linggo 9</h4>
+                    <p>Mga Uri ng Panitikan: Pagsusuri ng iba't ibang anyo ng pahayag na pampanitikan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 10.pdf', 'pdf')">
+                    <h4>Linggo 10</h4>
+                    <p>Mga Institusyong Panlipunan: Pag-aaral ng pamilya, edukasyon, at relihiyon</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 11.pdf', 'pdf')">
+                    <h4>Linggo 11</h4>
+                    <p>Globalisasyon at Lipunan: Epekto ng mga prosesong global sa mga lokal na komunidad</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 13.docx', 'docx')">
+                    <h4>Linggo 13</h4>
+                    <p>Mga Paraan ng Pananaliksik Panlipunan: Mga teknik sa pag-aaral ng penomenang panlipunan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 14.docx', 'docx')">
+                    <h4>Linggo 14</h4>
+                    <p>Kasalukuyang Isyung Panlipunan: Pagsusuri ng mga hamon sa lipunan sa kasalukuyan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 15.docx', 'docx')">
+                    <h4>Linggo 15</h4>
+                    <p>Kritisismong Pampanitikan: Mga diskarte sa pagsusuri ng mga akdang pampanitikan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 16.docx', 'docx')">
+                    <h4>Linggo 16</h4>
+                    <p>Pagbabago sa Lipunan: Pag-unawa sa mga proseso ng pagbabago sa lipunan</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/SOSLIT/WEEK 17.docx', 'docx')">
+                    <h4>Linggo 17</h4>
+                    <p>Pangwakas na Proyekto: Pagsasama ng mga konsepto sa agham panlipunan at panitikan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KOMFIL Modules Modal -->
+    <div id="komfilModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('komfilModal')">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px;">Mga Modyul ng KOMFIL</h2>
+            <div class="modules-grid">
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 1.docx', 'docx')">
+                    <h4>Linggo 1</h4>
+                    <p>Panimula sa Komunikasyon sa Filipino: Mga pangunahing konsepto at prinsipyo</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 2.docx', 'docx')">
+                    <h4>Linggo 2</h4>
+                    <p>Mga Uri ng Komunikasyon: Verbal at di-verbal na komunikasyon</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 3.docx', 'docx')">
+                    <h4>Linggo 3</h4>
+                    <p>Mga Elemento ng Komunikasyon: Mga sangkap at proseso ng komunikasyon</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 4.docx', 'docx')">
+                    <h4>Linggo 4</h4>
+                    <p>Mga Hadlang sa Komunikasyon: Pagkilala at paglutas ng mga sagabal</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 5.docx', 'docx')">
+                    <h4>Linggo 5</h4>
+                    <p>Komunikasyon sa Akademya: Mga teknik sa akademikong pagsulat at pagsasalita</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 7.docx', 'docx')">
+                    <h4>Linggo 7</h4>
+                    <p>Komunikasyon sa Media: Mga prinsipyo ng mass media at social media</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 8.docx', 'docx')">
+                    <h4>Linggo 8</h4>
+                    <p>Komunikasyon sa Organisasyon: Mga diskarte sa komunikasyon sa trabaho</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 9.docx', 'docx')">
+                    <h4>Linggo 9</h4>
+                    <p>Interkultural na Komunikasyon: Pag-unawa sa komunikasyon sa iba't ibang kultura</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 10.docx', 'docx')">
+                    <h4>Linggo 10</h4>
+                    <p>Komunikasyon sa Teknolohiya: Mga bagong paraan ng komunikasyon sa digital age</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 11.docx', 'docx')">
+                    <h4>Linggo 11</h4>
+                    <p>Komunikasyon sa Krisis: Mga diskarte sa pagharap sa mga krisis at emergency</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 13.docx', 'docx')">
+                    <h4>Linggo 13</h4>
+                    <p>Komunikasyon sa Edukasyon: Mga paraan ng epektibong pagtuturo at pagkatuto</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 14.docx', 'docx')">
+                    <h4>Linggo 14</h4>
+                    <p>Komunikasyon sa Pamahalaan: Mga prinsipyo ng komunikasyon sa pampublikong sektor</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 15.docx', 'docx')">
+                    <h4>Linggo 15</h4>
+                    <p>Komunikasyon sa Negosyo: Mga diskarte sa komunikasyon sa propesyonal na setting</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 16.docx', 'docx')">
+                    <h4>Linggo 16</h4>
+                    <p>Komunikasyon sa Pananaliksik: Mga paraan ng komunikasyon ng mga resulta ng pananaliksik</p>
+                </div>
+                <div class="module-card" onclick="openModule('LESSON PROPERS/KOMFIL/WEEK 17.docx', 'docx')">
+                    <h4>Linggo 17</h4>
+                    <p>Pangwakas na Proyekto: Pagsasama ng mga konsepto sa komunikasyon sa Filipino</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Module Content Modal -->
+    <div id="moduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('moduleModal')">&times;</span>
+            <div id="moduleContent"></div>
+        </div>
+    </div>
+
+    <!-- Login/Signup Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content login-modal-content">
+            <span class="close-button" onclick="closeModal('loginModal')">&times;</span>
+            <div id="loginFormSection">
+                <h2 style="text-align:center;">Login</h2>
+                <form class="auth-form" onsubmit="event.preventDefault(); /* handle login */">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                    <button type="submit" class="auth-submit">Login</button>
+                </form>
+                <p style="text-align:center; margin-top:1rem;">Walang account? <a href="#" onclick="showSignup();return false;">Sign up</a></p>
+            </div>
+            <div id="signupFormSection" style="display:none;">
+                <h2 style="text-align:center;">Sign Up</h2>
+                <form class="auth-form" onsubmit="event.preventDefault(); /* handle signup */">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" required>
+                    <button type="submit" class="auth-submit">Sign Up</button>
+                </form>
+                <p style="text-align:center; margin-top:1rem;">May account ka na? <a href="#" onclick="showLogin();return false;">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openFildisModules() {
+            document.getElementById('fildisModal').style.display = 'block';
+        }
+
+        function openSolslitModules() {
+            document.getElementById('solslitModal').style.display = 'block';
+        }
+
+        function openKomfilModules() {
+            document.getElementById('komfilModal').style.display = 'block';
+        }
+
+        function openModule(path, type) {
+            const modal = document.getElementById('moduleModal');
+            const content = document.getElementById('moduleContent');
+            
+            if (type === 'pdf') {
+                content.innerHTML = `<iframe src="${path}"></iframe>`;
+            }
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Mobile menu toggle
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+            showLogin();
+        }
+        function showSignup() {
+            document.getElementById('loginFormSection').style.display = 'none';
+            document.getElementById('signupFormSection').style.display = 'block';
+        }
+        function showLogin() {
+            document.getElementById('loginFormSection').style.display = 'block';
+            document.getElementById('signupFormSection').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
