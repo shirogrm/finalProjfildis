@@ -6,6 +6,42 @@
     <title>Learning Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .download-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 8px 15px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+
+        .download-btn:hover {
+            background-color: #ff5252;
+        }
+
+        .download-btn i {
+            font-size: 16px;
+        }
+
+        .modal-content {
+            position: relative;
+            padding-top: 50px;
+        }
+
+        #moduleContent {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -316,6 +352,9 @@
     <!-- Module Content Modal -->
     <div id="moduleModal" class="modal">
         <div class="modal-content">
+            <button id="downloadPPT" class="download-btn" onclick="downloadPPT()">
+                <i class="fas fa-file-powerpoint"></i> Download PPT
+            </button>
             <span class="close-button" onclick="closeModal('moduleModal')">&times;</span>
             <div id="moduleContent"></div>
         </div>
@@ -370,9 +409,24 @@
         function openKomfilModules() {
             document.getElementById('komfilModal').style.display = 'block';
         }
+        let currentModule = {
+            subject: '',
+            week: ''
+        };
+
         function openModule(path, type) {
             const modal = document.getElementById('moduleModal');
             const content = document.getElementById('moduleContent');
+            
+            // Extract subject and week from the path
+            const pathParts = path.split('/');
+            const subject = pathParts[1]; // FILDIS, SOSLIT, or KOMFIL
+            const weekFile = pathParts[pathParts.length - 1];
+            const week = weekFile.split(' ')[1].split('.')[0]; // Extract week number
+            
+            currentModule.subject = subject;
+            currentModule.week = week;
+            
             if (type === 'pdf') {
                 content.innerHTML = `<iframe src="${path}"></iframe>`;
             }
@@ -397,6 +451,26 @@
         function showLogin() {
             document.getElementById('loginFormSection').style.display = 'block';
             document.getElementById('signupFormSection').style.display = 'none';
+        }
+        function downloadPPT() {
+            const { subject, week } = currentModule;
+            if (!subject || !week) {
+                alert('No module selected');
+                return;
+            }
+
+            // Construct the PPT file path
+            const pptPath = `PPT/${subject}/week${week}.pdf`;
+            
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = pptPath;
+            link.download = `${subject}_Week${week}.pdf`;
+            
+            // Append to body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
 </body>
