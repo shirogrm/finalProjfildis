@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
         .download-btn {
             position: absolute;
             top: 10px;
@@ -40,6 +44,14 @@
 
         #moduleContent {
             margin-top: 10px;
+        }
+
+        .nav-links a {
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
         }
     </style>
 </head>
@@ -459,13 +471,25 @@
                 return;
             }
 
+            // Map the subject to the correct folder name
+            const subjectFolder = {
+                'FILDIS': 'FILDIS',
+                'SOSLIT': 'SOSLIT',
+                'KOMFIL': 'KOMFIL'
+            }[subject];
+
+            if (!subjectFolder) {
+                alert('Invalid subject');
+                return;
+            }
+
             // Construct the PPT file path
-            const pptPath = `PPT/${subject}/week${week}.pdf`;
+            const pptPath = `LESSON PPT/${subjectFolder}/week${week}.pptx`;
             
             // Create a temporary link element
             const link = document.createElement('a');
             link.href = pptPath;
-            link.download = `${subject}_Week${week}.pdf`;
+            link.download = `${subject}_Week${week}.pptx`;
             
             // Append to body, click, and remove
             document.body.appendChild(link);
