@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Platform</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -472,29 +473,27 @@
                 return;
             }
 
-            // Map the subject to the correct folder name
-            const subjectFolder = {
-                'FILDIS': 'FILDIS',
-                'SOSLIT': 'SOSLIT',
-                'KOMFIL': 'KOMFIL'
-            }[subject];
+            try {
+                const pptPath = `LESSON PPT/${subject}/WEEK ${week}.pptx`;
+                const link = document.createElement('a');
+                link.href = pptPath;
+                link.setAttribute('download', `${subject}_Week${week}.pptx`);
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+                
+                // Add error handling
+                link.onerror = function() {
+                    alert('Failed to download PPT. Please try again or contact support.');
+                };
 
-            if (!subjectFolder) {
-                alert('Invalid subject');
-                return;
+                // Append to body, click, and remove
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } catch (error) {
+                console.error('Error downloading PPT:', error);
+                alert('Failed to download PPT. Please try again or contact support.');
             }
-
-            // Create a temporary link element
-            const link = document.createElement('a');
-            
-            // Set the path for PPT files
-            link.href = `LESSON PPT/${subjectFolder}/WEEK ${week}.pptx`;
-            link.download = `${subject}_Week${week}.pptx`;
-            
-            // Append to body, click, and remove
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         }
     </script>
 </body>
